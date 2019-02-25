@@ -1,0 +1,48 @@
+<br>
+<h4 md-4 style="text-align: center">
+  Login
+</h4>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-5 offset-3">
+      <form name="userForm" #f="ngForm" (ngSubmit)="f.valid && onSubmit()" required>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Username</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" name="username" [(ngModel)]="user.username" #username="ngModel"
+              email [ngClass]="" required>
+            <div *ngIf="username.touched && !username.valid" class="text-danger">Username is not valid.</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel"
+              minlength="4" maxlength="10" required>
+
+            <div *ngIf="password.touched && password.invalid" class="text-danger">Minimum 4 characters</div>
+            <div *ngIf="password.touched && password.invalid" class="text-danger">Maximum 10 characters</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label"></label>
+          <div class="col-sm-9">
+            <div *ngIf="showError" class="alert alert-danger">Invalid Credentials</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="margin-left:80px">Sign in</button>
+          </div>
+        </div>
+
+      </form>
+      <a routerLink="/forgotpwd" style="margin-left: 50px">Forgot Password</a>
+      <a routerLink="/signup" style="float: right;">Sign Up</a>      
+    </div>
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>

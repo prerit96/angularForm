@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+select.form-control {
+    appearance: none;
+    background: url(../src/assets/down-arrow.png) white right 0.75rem center no-repeat;
+}
+
+.grad {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(rgb(184, 109, 199))) fixed
+}
+
+.table-bordered{
+    border:  0.5px solid black
+}
+#navGrad {
+    background-color:#faf6fc;
+    border-bottom: 5px solid #030b6c
+}

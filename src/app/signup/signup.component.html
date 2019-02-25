@@ -1,0 +1,83 @@
+<br>
+<h4 md-4 style="text-align: center">
+  Sign Up
+</h4>
+<div class="container">
+  <div class="row pt-5">
+
+    <div class="col-5 offset-3">
+      <form name="userForm" #f="ngForm" (ngSubmit)="f.valid && signUp()" required>
+
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">E-mail</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="email" [(ngModel)]="user.email" #mail="ngModel" email
+              required>
+            <div *ngIf="(mail.touched || f.submitted) && !mail.valid" class="text-danger">Email is not valid</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">First Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="firstname" [(ngModel)]="user.firstname" #fname="ngModel"
+              required>
+            <div *ngIf="(fname.touched|| f.submitted) && fname.invalid" class="text-danger">Invalid First Name </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Last Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="lastname" [(ngModel)]="user.lastname" #lname="ngModel"
+              required>
+            <div *ngIf="(lname.touched|| f.submitted) && lname.invalid" class="text-danger">Minimum 4 characters</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #pwd="ngModel"
+              minlength="4" maxlength="10" required>
+            <div *ngIf="(pwd.touched|| f.submitted) && pwd.invalid" class="text-danger">Password Length should be between 4-10
+              characters</div>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Mobile</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="mobile" [(ngModel)]="user.mobile" #mob="ngModel"
+              minlength="10" maxlength="10" required>
+            <div *ngIf="(mob.touched|| f.submitted) && mob.invalid" class="text-danger">Mobile number must be 10 characters</div>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Gender</label>
+          <div class="col-sm-9">
+            <select name="gender" [(ngModel)]="user.gender" #g="ngModel" class="form-control" required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Transgender">Transgender</option>
+
+            </select>
+            <div *ngIf="f.submitted && !g.valid" class="text-danger">Please select gender.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" routerLink="/home"
+              style="float:left; padding-left: 20px; padding-right: 20px;">Back</button>
+            <button type="submit" class="btn btn-primary" style="float:right;">Sign Up</button>
+
+          </div>
+        </div>
+
+      </form>
+
+
+    </div>
+
+  </div>
+</div>
